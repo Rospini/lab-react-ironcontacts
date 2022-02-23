@@ -34,7 +34,10 @@ export default function App() {
     );
     updateContacts(contactsSort);
   };
-  
+  const removeContact = (id) => {
+    const reduceArr = contactsArr.reduce((contact) => !contactsArr.id.includes(id));
+    updateContacts(reduceArr);
+  };
 
   return (
     <div class="iron-contacts">
@@ -60,7 +63,7 @@ export default function App() {
             <td>{(contact.popularity).toFixed(2)}</td>
             <td>{contact.wonOscar?"🏆": ""}</td>
             <td>{contact.wonEmmy?"🏆": ""}</td>
-            {/* <td><button onClick={contact.id}>Delete</button> </td> */}
+            <td><button onClick={() => removeContact(contactsArr.id)}>Delete</button> </td>
           </tr>
         )
       })
